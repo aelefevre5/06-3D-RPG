@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/skin.material" type="Material" id=1]
 [ext_resource path="res://Assets/skaterFemaleA.png" type="Texture" id=2]
+[ext_resource path="res://Assets/blasterH.glb" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -4835,7 +4836,7 @@ bones/35/name = "right_hand_thumb_1"
 bones/35/parent = 31
 bones/35/rest = Transform( -0.554881, -0.654406, -0.513673, -0.0427129, 0.639042, -0.767985, 0.830832, -0.4042, -0.382544, -0.063919, 0.0509812, -0.0128302 )
 bones/35/enabled = true
-bones/35/bound_children = [  ]
+bones/35/bound_children = [ NodePath("BoneAttachment") ]
 bones/36/name = "right_hand_thumb_2"
 bones/36/parent = 35
 bones/36/rest = Transform( 0.660497, -0.565645, -0.49375, 0.514051, -0.138638, 0.846481, -0.54726, -0.812912, 0.199201, 9.52321e-08, 0.105868, 2.92955e-08 )
@@ -4886,6 +4887,13 @@ bones/44/bound_children = [  ]
 mesh = SubResource( 2 )
 skin = SubResource( 3 )
 material/0 = SubResource( 4 )
+
+[node name="BoneAttachment" type="BoneAttachment" parent="Root/Skeleton"]
+transform = Transform( -0.861021, 0.111159, 0.496283, 0.405263, -0.439605, 0.80157, 0.307268, 0.891284, 0.33346, -0.656428, 1.30512, 0.284109 )
+bone_name = "right_hand_thumb_1"
+
+[node name="blasterH" parent="Root/Skeleton/BoneAttachment" instance=ExtResource( 3 )]
+transform = Transform( -1.18509, 0.883214, -0.255916, 0.239222, 0.699219, 1.30532, 0.887876, 0.99047, -0.693286, -0.046801, 0.410685, -0.173273 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Attack = SubResource( 5 )
